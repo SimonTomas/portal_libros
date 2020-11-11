@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :books
+  
+  get 'cards/show'
+  resources  :books
+  resources  :shops,       only: [:index, :show]
+  resources  :order_items
+  resource   :cards,       only:[:show]
+
   devise_for :users
 
-  root 'books#index'
+  root 'shops#index'
 
 end
